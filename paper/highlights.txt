@@ -1,0 +1,5 @@
+• Mask-View trains imputers on operational failure patterns (point/block/sensor/station/mixed).
+• MixHop spatiotemporal GNN with mask-aware aggregation for Dianchi 22-station panel.
+• Full 5×3 benchmark vs Mean/LOCF/Linear/SAITS/BRITS/GRIN*; best average and DO MAE.
+• Ablations: pattern bank essential; λ_cons↑ hurts; spatial_plus_l0 best overall recipe.
+• Open data, code and GitHub Pages project site for reproducibility.

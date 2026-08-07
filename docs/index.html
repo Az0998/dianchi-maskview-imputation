@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mask-View Dianchi Water Imputation</title>
+  <style>
+    :root {
+      --ink: #1a2b3c;
+      --muted: #5a6a7a;
+      --water: #1f6f8b;
+      --sand: #e8eef2;
+      --accent: #c45c26;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Source Serif 4", "Georgia", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #d7e8ef 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #f3e6dc 0%, transparent 50%),
+        linear-gradient(180deg, #f7fafc 0%, #eef3f6 100%);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
+    .brand {
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--water);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      font-weight: 700;
+    }
+    .lead { font-size: 1.15rem; color: var(--muted); margin: 0 0 28px; max-width: 42rem; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+    a.btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    a.btn.primary { background: var(--water); color: #fff; }
+    a.btn.ghost { background: transparent; color: var(--water); border: 1px solid #9bb8c4; }
+    section { margin: 36px 0; }
+    h2 { font-size: 1.25rem; margin: 0 0 12px; }
+    p, li { color: var(--ink); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .stat {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid #d5e0e7;
+      padding: 16px;
+    }
+    .stat b { display: block; font-size: 1.45rem; color: var(--water); }
+    .stat span { font-family: "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: rgba(255,255,255,0.8);
+    }
+    th, td { border: 1px solid #d5e0e7; padding: 8px 10px; text-align: left; }
+    th { background: var(--sand); font-family: "Segoe UI", sans-serif; font-size: 0.8rem; }
+    footer {
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 1px solid #d5e0e7;
+      font-family: "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">Dianchi · Water Quality · Mask-View</div>
+    <h1>Mask-View Spatiotemporal Imputation for Block-Missing Automatic Monitoring Networks</h1>
+    <p class="lead">
+      An open benchmark and method for reconstructing multi-station water-quality series
+      under operational missingness (sensor downtime, station outages) in the Dianchi Lake basin.
+      Target journal: <em>Water</em> (MDPI).
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/Az0998/dianchi-maskview-imputation">GitHub Repository</a>
+      <a class="btn ghost" href="https://huggingface.co/datasets/anonymous-dianchi-2026/dianchi-water">Open Dataset</a>
+      <a class="btn ghost" href="https://github.com/Az0998/dianchi-maskview-imputation/blob/main/paper/Water_MaskView_Dianchi_manuscript.docx">Manuscript (docx)</a>
+      <a class="btn ghost" href="https://az0998.github.io/dianchi-maskview-imputation/">Project Site</a>
+    </div>
+
+    <section>
+      <h2>Key numbers</h2>
+      <div class="grid">
+        <div class="stat"><b>22</b><span>stations · 9 variables · 4-hourly</span></div>
+        <div class="stat"><b>19.8%</b><span>natural missing (mostly blocks)</span></div>
+        <div class="stat"><b>0.381</b><span>best overall MAE (spatial_plus_l0)</span></div>
+        <div class="stat"><b>105</b><span>benchmark settings (7×5×3)</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why Mask-View</h2>
+      <p>
+        Automatic stations fail as <strong>blocks</strong>, not only as scattered MCAR holes.
+        Mask-View trains on complementary failure patterns (point, block_time, sensor, station, mixed)
+        with reconstruction and (optional) cross-view consistency, on a MixHop spatiotemporal graph.
+      </p>
+    </section>
+
+    <section>
+      <h2>Headline comparison (standardized MAE)</h2>
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Overall</th><th>DO</th><th>Sensor</th><th>Station</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Linear</td><td>0.411</td><td>0.573</td><td>0.696</td><td>0.679</td></tr>
+          <tr><td>BRITS</td><td>0.434</td><td>0.522</td><td>0.430</td><td>0.435</td></tr>
+          <tr><td>MaskView-ST</td><td>0.388</td><td>0.480</td><td>0.441</td><td>0.539</td></tr>
+          <tr><td><strong>spatial_plus_l0</strong></td><td><strong>0.381</strong></td><td><strong>0.459</strong></td><td><strong>0.421</strong></td><td>0.540</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Reproduce</h2>
+      <p style="font-family: ui-monospace, Consolas, monospace; font-size: 0.9rem; background:#fff; padding:14px; border:1px solid #d5e0e7;">
+        pip install -r requirements.txt<br/>
+        python run_benchmark.py --epochs 40 --pypots-epochs 20<br/>
+        python export_paper_tables.py<br/>
+        python build_water_manuscript.py
+      </p>
+    </section>
+
+    <footer>
+      Code &amp; manuscript: Az0998/dianchi-maskview-imputation · Data license CC BY 4.0 ·
+      Linked research line with hydro-ml-paper (streamflow forecasting).
+    </footer>
+  </div>
+</body>
+</html>

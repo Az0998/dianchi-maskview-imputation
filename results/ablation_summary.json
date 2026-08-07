@@ -1,0 +1,41 @@
+{
+  "station_mae": {
+    "BRITS_ref": 0.43452709913253784,
+    "lcons05_fixed": 0.5388789971669515,
+    "spatial_plus_l0": 0.5399164160092672,
+    "lcons0_fixed": 0.5428056319554647,
+    "lcons10_fixed": 0.5451509157816569,
+    "spatial_plus": 0.5500767827033997,
+    "point_only": 0.6391526659329733
+  },
+  "station_mae_do": {
+    "BRITS_ref": 0.514429529507955,
+    "spatial_plus_l0": 0.5915674964586893,
+    "lcons0_fixed": 0.5957093238830566,
+    "lcons05_fixed": 0.5983599225680033,
+    "lcons10_fixed": 0.623819629351298,
+    "spatial_plus": 0.6309264103571574,
+    "point_only": 0.6467074155807495
+  },
+  "overall_mae": {
+    "spatial_plus_l0": 0.3805047571659088,
+    "lcons0_fixed": 0.3965362767378489,
+    "point_only": 0.4064841667811076,
+    "spatial_plus": 0.40729918082555133,
+    "lcons05_fixed": 0.4164979795614878,
+    "BRITS_ref": 0.4338062385718028,
+    "lcons10_fixed": 0.4472462316354116
+  },
+  "overall_mae_do": {
+    "spatial_plus_l0": 0.45944488247235615,
+    "lcons0_fixed": 0.4755892674128214,
+    "point_only": 0.48384375174840294,
+    "spatial_plus": 0.5018708070119222,
+    "lcons05_fixed": 0.5093771954377492,
+    "BRITS_ref": 0.5222203115622203,
+    "lcons10_fixed": 0.5643775661786398
+  },
+  "station_gap_spatial_l0_vs_brits": 0.10538931687672937,
+  "station_gap_lcons0_vs_brits": 0.10827853282292688,
+  "best_recipe": "spatial MixHop + station boost + lambda_cons=0; full pattern bank essential vs point_only"
+}

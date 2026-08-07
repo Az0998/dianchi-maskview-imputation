@@ -1,0 +1,225 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "wd": "https://www.wikidata.org/wiki/",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileObject": "cr:fileObject",
+    "fileProperty": "cr:fileProperty",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "citeAs": "cr:citeAs",
+    "equivalentProperty": "cr:equivalentProperty",
+    "samplingRate": "cr:samplingRate"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "dianchi-water",
+  "description": "A high-frequency (4-hourly) multi-station surface water quality dataset covering 22 monitoring stations, 9 water quality variables, and 3 years (2022-2024) in the Dianchi Lake basin, China. Natural missing rate: 19.8% (>99% block-structured).",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://huggingface.co/datasets/anonymous-dianchi-2026/dianchi-water",
+  "citeAs": "@article{anonymous2026dianchiwater, title={A High-Frequency Multi-Station Surface Water Quality Dataset and Mask-View Augmentation Benchmark for Time-Series Imputation}, author={Anonymous}, year={2026}}",
+  "datePublished": "2026-04-25",
+  "version": "1.0.0",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "parquet-file",
+      "name": "parquet-file",
+      "contentUrl": "https://huggingface.co/datasets/anonymous-dianchi-2026/dianchi-water/resolve/main/data/dianchi_data_df.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "5ff4359beee823944dd8dfd4e4047fc722e9d270630af2b7a049d18c0afd4414"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "distance-matrix",
+      "name": "distance-matrix",
+      "contentUrl": "https://huggingface.co/datasets/anonymous-dianchi-2026/dianchi-water/resolve/main/data/dianchi_station_distance_km.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "59961147fa57829bdc20afd13cf18970cb4a06e7d7d9483ed8be17a96846b564"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "water-quality-records",
+      "name": "water-quality-records",
+      "description": "116,783 time-stamped water quality observations across 22 stations and 9 variables at 4-hourly cadence.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "name": "tm",
+          "description": "Timestamp (4-hourly cadence)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "tm" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "station",
+          "description": "Monitoring station name",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "station" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "TEM",
+          "description": "Water temperature (deg C)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "TEM" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "PH",
+          "description": "pH",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "PH" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "DO",
+          "description": "Dissolved oxygen (mg/L)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "DO" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "CON",
+          "description": "Electrical conductivity (uS/cm)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "CON" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "NTU",
+          "description": "Turbidity (NTU)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "NTU" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "IMN",
+          "description": "Permanganate index (mg/L)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "IMN" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "NH_N",
+          "description": "Ammonia nitrogen (mg/L)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "NH_N" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "TP",
+          "description": "Total phosphorus (mg/L)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "TP" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "TN",
+          "description": "Total nitrogen (mg/L)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": { "@id": "parquet-file" },
+            "extract": { "column": "TN" }
+          }
+        }
+      ]
+    }
+  ],
+  "rai:dataCollection": "Data sourced from the National Real-Time Surface Water Quality Automatic Monitoring Data Release System operated by the China National Environmental Monitoring Centre (http://www.cnemc.cn). The system records automated sensor readings at 4-hourly intervals from government monitoring stations in the Dianchi Lake basin. No human subjects involved. Raw yearly CSV files (2022-2024) were processed through an 8-stage cleaning pipeline covering schema normalization, station identity canonicalization, sentinel value remapping, and duplicate reconciliation.",
+  "rai:dataCollectionType": "Direct measurement",
+  "rai:dataCollectionMissingData": "The aggregate natural missing rate is 19.8% across nine target variables. Over 99% of missing cells are block-structured, caused by station-level downtime (power loss, telemetry failure, scheduled maintenance) that silences all sensors simultaneously for hours to days. Per-station observation rates range from 30.6% to 89.3%. Two auxiliary variables (chlorophyll-a and phycocyanin) were excluded due to missing rates exceeding 87%.",
+  "rai:dataCollectionRawData": "Publicly disclosed automatic surface water quality monitoring records from 22 stations in the Dianchi Lake basin, China, covering January 2022 through December 2024.",
+  "rai:dataCollectionTimeframe": [
+    {
+      "@value": "2022-01-01T00:00:00",
+      "@type": "sc:DateTime"
+    },
+    {
+      "@value": "2024-12-31T23:59:59",
+      "@type": "sc:DateTime"
+    }
+  ],
+  "rai:dataPreprocessingProtocol": "Eight-stage cleaning pipeline: (1) schema normalization and timestamp parsing, (2) station-name filtering, (3) geographic metadata harmonization, (4) watershed back-fill, (5) station identity canonicalization via curated rules and alias mappings, (6) sentinel value remapping (-1: below detection, -2: no measurement, -3: equipment fault mapped to NaN), (7) duplicate reconciliation of 3,800 rows by precision-based deduplication or averaging, (8) final output. Full pipeline code, merge decision lists, and manual correction logs are released alongside the dataset.",
+  "rai:personalSensitiveInformation": "None. Dataset contains only environmental sensor readings from government monitoring stations. No personal or human-subject data is present. Raw GPS coordinates of monitoring stations are withheld; only pairwise geodesic distances are provided.",
+  "rai:dataSocialImpact": "Supports development of time-series imputation methods for environmental monitoring, potentially improving early warning systems for water pollution events and regulatory compliance assessment. Misuse risk: treating imputed values as ground-truth observational data for regulatory or legal purposes. This risk is mitigated by retaining and releasing the original observation masks alongside the data.",
+  "rai:dataLimitations": "Covers a single lake basin (Dianchi, Yunnan, China) under one regulatory jurisdiction. Findings and models trained on this data may not generalize to other hydrological systems, climatic zones, or monitoring infrastructures. Two auxiliary variables (chlorophyll-a and phycocyanin) were excluded due to missing rates exceeding 87%.",
+  "rai:dataBiases": "Station placement reflects regulatory monitoring priorities rather than scientific sampling design, creating uneven spatial coverage across the basin. Observation completeness varies substantially across stations (30.6% to 89.3%), introducing temporal coverage heterogeneity that may bias models toward better-observed stations.",
+  "rai:dataUseCases": [
+    "Training and evaluating time-series imputation models under realistic block-structured missingness",
+    "Benchmarking mask augmentation strategies across diverse model architectures",
+    "Supporting research on multivariate environmental sensor data with high natural missing rates",
+    "Future spatiotemporal graph-based imputation using the released station distance matrix"
+  ],
+  "rai:hasSyntheticData": "The dataset itself contains no synthetic data. All values are original sensor readings. Synthetic binary masks are generated only during the benchmarking process to evaluate imputation models and are not part of the released dataset.",
+  "prov:wasGeneratedBy": "Data was generated by automated water quality sensors deployed at 22 government monitoring stations in the Dianchi Lake basin, China, operated under the National Real-Time Surface Water Quality Automatic Monitoring Data Release System of the China National Environmental Monitoring Centre. Sensors record nine water quality parameters at 4-hourly intervals. The released dataset was produced by applying a reproducible 8-stage cleaning pipeline to the publicly disclosed raw records."
+}

@@ -1,0 +1,14 @@
+Dear Editor,
+
+Please consider our manuscript
+“Mask-View Spatiotemporal Imputation for Block-Missing Water-Quality Monitoring Networks: A Dianchi Lake Basin Benchmark”
+for publication in Water.
+
+The manuscript addresses a practical gap in water-quality informatics: automatic monitoring series are dominated by block-structured missingness, yet many ML papers evaluate only MCAR holes. We propose Mask-View augmentation and a MixHop spatiotemporal imputer, and we provide a reproducible open benchmark on the Dianchi 22-station dataset with classical and deep baselines, ablations and DO-focused metrics. We believe the work fits the Water Quality / Hydroinformatics scope and meets MDPI expectations for open data and reproducible methods.
+
+Suggested section: Water Quality.
+
+Sincerely,
+[Corresponding Author]
+[Institution]
+[Email]
