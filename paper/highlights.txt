@@ -1,5 +1,5 @@
-• Mask-View trains imputers on operational failure patterns (point/block/sensor/station/mixed).
-• MixHop spatiotemporal GNN with mask-aware aggregation for Dianchi 22-station panel.
-• Full 5×3 benchmark vs Mean/LOCF/Linear/SAITS/BRITS/GRIN*; best average and DO MAE.
-• Ablations: pattern bank essential; λ_cons↑ hurts; spatial_plus_l0 best overall recipe.
-• Open data, code and GitHub Pages project site for reproducibility.
+• Mask-View trains on operational failure patterns; best average MAE 0.388 and DO MAE 0.480 on Dianchi.
+• Recommended recipe spatial_plus_l0 reaches overall MAE 0.381 and beats BRITS on sensor dropout.
+• Point-only training collapses on sensor/station outages—pattern bank is necessary.
+• After fixing consistency on raw predictions, λ_cons = 0 is best; larger λ hurts average MAE.
+• Open data, code, tables and GitHub Pages site for full reproducibility.

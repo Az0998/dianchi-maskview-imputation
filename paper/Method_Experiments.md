@@ -32,7 +32,7 @@ Variables are standardized using training-set means/stds on observed cells. Mult
 
 ### 2.3. Spatial Graph
 
-From distances \(D_{ij}\) (km) we build a \(k\)-NN Gaussian adjacency (\(k=3\), cutoff \(40\,\mathrm{km}\), \(\sigma=15\,\mathrm{km}\)), symmetrize and row-normalize, retaining self-loops.
+From distances \(D_{ij}\) (km) we build a \(k\)-NN Gaussian adjacency. **Recommended recipe** uses \(k=8\), cutoff \(60\,\mathrm{km}\), \(\sigma=20\,\mathrm{km}\); symmetrize and row-normalize, retaining self-loops.
 
 ### 2.4. Mask-View Augmentation (Proposed)
 
@@ -50,11 +50,11 @@ Automatic-station failures are poorly described by MCAR holes alone. **Mask-View
 
 Training samples artificial ratio \(r\sim U[0.15,0.35]\). Evaluation uses \(r\in\{0.1,0.2,0.3\}\) under all five patterns.
 
-**Losses.** Reconstruction \(\mathcal{L}_{\mathrm{rec}}\) on originally observed cells that were artificially hidden; cross-view consistency \(\mathcal{L}_{\mathrm{cons}}\) on cells visible in multiple views; total \(\mathcal{L}=\mathcal{L}_{\mathrm{rec}}+\lambda_{\mathrm{cons}}\mathcal{L}_{\mathrm{cons}}\) with \(\lambda_{\mathrm{cons}}=0.5\).
+**Losses.** Reconstruction \(\mathcal{L}_{\mathrm{rec}}\) on originally observed cells that were artificially hidden; cross-view consistency \(\mathcal{L}_{\mathrm{cons}}\) on **raw decoder outputs** (not blended imputations); total \(\mathcal{L}=\mathcal{L}_{\mathrm{rec}}+\lambda_{\mathrm{cons}}\mathcal{L}_{\mathrm{cons}}\). Recommended \(\lambda_{\mathrm{cons}}=0\) (ablation: higher \(\lambda\) hurts average MAE).
 
 ### 2.5. MaskView-ST Architecture
 
-**MaskView-ST** stacks two spatiotemporal blocks: graph convolution over stations + multi-head temporal self-attention along time. Inputs concatenate values and the current mask (\(2D\) channels). An MLP decoder predicts all channels; observed entries are kept at inference. Capacity: hidden 64, 4 heads, AdamW \(10^{-3}\), batch 32, **40 epochs** with validation checkpointing.
+**MaskView-ST** stacks MixHop (1-/2-hop) spatiotemporal blocks + multi-head temporal self-attention, with mask-aware neighbor aggregation. Inputs concatenate values and the current mask (\(2D\) channels). An MLP decoder predicts all channels; observed entries are kept at inference. Recommended capacity (`spatial_plus_l0`): hidden 64, **3 layers**, 4 heads, AdamW \(10^{-3}\), batch 32, \(\lambda=0\), station-pattern upsampling; paper runs use validation checkpointing.
 
 ### 2.6. Baselines
 
