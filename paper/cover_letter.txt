@@ -7,9 +7,11 @@ for publication in Water.
 The manuscript addresses a practical gap in water-quality informatics: automatic monitoring series are dominated by block-structured missingness, yet many ML papers evaluate only MCAR holes. We propose Mask-View augmentation and a MixHop spatiotemporal imputer, and we provide a reproducible open benchmark on the Dianchi 22-station dataset (105 model–settings plus ablations). The recommended spatial_plus_l0 recipe achieves the best average and DO accuracy among compared methods and surpasses BRITS under sensor dropout, while we transparently report the residual station-pattern gap. We believe the work fits the Water Quality / Hydroinformatics scope and meets MDPI expectations for open data and reproducible methods.
 
 Suggested section: Water Quality.
+Optional Special Issue: Water Quality Studies: Assessing the Presence of Nutrients and Pollutants, 2nd Edition.
 Article type: Article.
 
 Sincerely,
-[Corresponding Author]
-[Institution]
-[Email]
+Senjie Zhang (张森捷)
+Lanzhou University
+Lanzhou 730000, Gansu, China
+Email: 3079099853@qq.com

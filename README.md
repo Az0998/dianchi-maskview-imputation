@@ -71,8 +71,11 @@ python finalize_ablation.py             # 汇总
 | point_only | point 很强，但 sensor/station **崩** → 证明 pattern bank 必要 |
 | spatial_plus_l0 | 总 MAE **0.381**、sensor **优于 BRITS**；station 缺口缩至 ~0.105 |
 
+**作者：** 张森捷（Senjie Zhang），兰州大学，3079099853@qq.com  
+
 **最终投稿稿（Water / MDPI）：** `paper/Water_MaskView_Dianchi_manuscript.docx`  
-（附 `paper/cover_letter.txt`、`paper/highlights.txt`、`paper/SUBMISSION_CHECKLIST_WATER.md`）
+（若该文件被 Word 占用，用 `paper/Water_MaskView_Dianchi_manuscript_v2.docx`）  
+附 `paper/cover_letter.txt`、`paper/highlights.txt`、`paper/SUBMISSION_CHECKLIST_WATER.md`
 
 ```bash
 python build_water_manuscript.py

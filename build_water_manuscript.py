@@ -169,20 +169,21 @@ def main():
         size=14,
         bold=True,
     )
-    center(doc, "[Author Name 1] 1,*, [Author Name 2] 1 and [Author Name 3] 2", size=11)
+    center(doc, "Senjie Zhang 1,*", size=11)
+    center(doc, "(张森捷)", size=10, italic=True)
     center(
         doc,
-        "1 [Department / School], [University], [City] [Postcode], [Country]; "
-        "2 [Affiliation 2]",
+        "1 Lanzhou University, Lanzhou 730000, Gansu, China",
         size=10,
         italic=True,
     )
-    center(doc, "*Correspondence: author@institution.edu", size=10, italic=True)
+    center(doc, "*Correspondence: 3079099853@qq.com", size=10, italic=True)
     center(doc, "Academic Editor: [to be assigned by journal]", size=9, italic=True, after=4)
     center(
         doc,
-        "Journal: Water (MDPI)  ·  Article Type: Article  ·  Section: Water Quality  ·  "
-        "Manuscript status: FINAL CONTENT (fill authors before SuSy upload)",
+        "Journal: Water (MDPI)  ·  Article Type: Article  ·  "
+        "Section: Water Quality  ·  Special Issue (optional): "
+        "Water Quality Studies—Nutrients and Pollutants, 2nd Edition",
         size=9,
         italic=True,
         after=8,
@@ -190,8 +191,9 @@ def main():
     note(
         doc,
         "Submission note: Paste this document into the official MDPI Water Microsoft Word template "
-        "(https://www.mdpi.com/journal/water/instructions). Replace bracketed author/funding fields. "
-        "All numerical results below are locked to the released benchmark tables (105 model–settings + ablations).",
+        "(https://www.mdpi.com/journal/water/instructions) before SuSy upload. "
+        "All numerical results below are locked to the released benchmark tables "
+        "(105 model–settings + ablations). ORCID may be added in SuSy if available.",
     )
 
     h(doc, "Abstract")
@@ -584,17 +586,15 @@ def main():
     h(doc, "Author Contributions")
     body(
         doc,
-        "Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X.; "
-        "formal analysis, X.X.; data curation, X.X.; writing—original draft preparation, X.X.; "
-        "writing—review and editing, Y.Y.; visualization, X.X.; supervision, Y.Y.; project "
-        "administration, Y.Y. All authors have read and agreed to the published version of the "
-        "manuscript. (Replace X.X./Y.Y. with real initials before submission.)",
+        "Conceptualization, S.Z.; methodology, S.Z.; software, S.Z.; validation, S.Z.; "
+        "formal analysis, S.Z.; data curation, S.Z.; writing—original draft preparation, S.Z.; "
+        "writing—review and editing, S.Z.; visualization, S.Z.; project administration, S.Z. "
+        "The author has read and agreed to the published version of the manuscript.",
     )
     h(doc, "Funding")
     body(
         doc,
-        "This research received no external funding. / Alternatively: This research was funded by "
-        "[FUNDER], grant number [###].",
+        "This research received no external funding.",
     )
     h(doc, "Institutional Review Board Statement")
     body(doc, "Not applicable.")
@@ -611,11 +611,11 @@ def main():
     h(doc, "Acknowledgments")
     body(
         doc,
-        "The authors thank the compilers of the open Dianchi monitoring dataset and the China National "
+        "The author thanks the compilers of the open Dianchi monitoring dataset and the China National "
         "Environmental Monitoring Center (CNEMC) automatic monitoring data release system.",
     )
     h(doc, "Conflicts of Interest")
-    body(doc, "The authors declare no conflicts of interest.")
+    body(doc, "The author declares no conflicts of interest.")
     h(doc, "Abbreviations")
     body(
         doc,
@@ -627,36 +627,36 @@ def main():
 
     h(doc, "References")
     refs = [
-        "Liu, W.; et al. Eutrophication of Lake Dianchi and its watershed: A review of nutrient sources and management. J. Environ. Sci. 2019. (expand with definitive Dianchi review before proof).",
-        "Wang, S.; et al. Water quality trends and ecological status of plateau lakes in Yunnan, China. Ecol. Indic. 2021.",
+        "Liu, Y.; Wang, Y.; Sheng, H.; Dong, F.; Zou, R.; Zhao, L.; Guo, H.; Zhu, X.; He, B. Quantitative evaluation of lake eutrophication responses under alternative water diversion scenarios: A water quality modeling based statistical analysis approach. Sci. Total Environ. 2014, 468–469, 219–227.",
+        "Huang, C.; Wang, X.; Yang, H.; Li, Y.; Wang, Y.; Chen, X.; Xu, L. Satellite data regarding the eutrophication response to human activities in the plateau lake Dianchi in China from 1974 to 2009. Sci. Total Environ. 2014, 485–486, 1–11.",
         "Diaz, R.J.; Rosenberg, R. Spreading dead zones and consequences for marine ecosystems. Science 2008, 321, 926–929.",
         "Paerl, H.W.; Huisman, J. Blooms like it hot. Science 2008, 320, 57–58.",
-        "Ahmed, A.N.; et al. Machine learning methods for better water quality prediction. J. Hydrol. 2019, 578, 124084.",
+        "Ahmed, A.N.; Othman, F.B.; Afan, H.A.; Ibrahim, R.K.; Fai, C.M.; Hossain, M.S.; Ehteram, M.; Elshafie, A. Machine learning methods for better water quality prediction. J. Hydrol. 2019, 578, 124084.",
         "Wilks, D.S. Statistical Methods in the Atmospheric Sciences, 4th ed.; Elsevier: Amsterdam, The Netherlands, 2019.",
         "China National Environmental Monitoring Center (CNEMC). National Surface Water Quality Automatic Monitoring Data Release System. Available online: https://szzdjc.cnemc.cn (accessed on 8 August 2026).",
         "Anonymous. dianchi-water: High-frequency multi-station surface water quality dataset for the Dianchi Lake basin (2022–2024). Hugging Face Datasets. Available online: https://huggingface.co/datasets/anonymous-dianchi-2026/dianchi-water (accessed on 8 August 2026).",
-        "Cao, W.; Wang, D.; Li, J.; Zhou, H.; Li, L.; Li, Y. BRITS: Bidirectional Recurrent Imputation for Time Series. In Advances in Neural Information Processing Systems; 2018.",
+        "Cao, W.; Wang, D.; Li, J.; Zhou, H.; Li, L.; Li, Y. BRITS: Bidirectional Recurrent Imputation for Time Series. In Advances in Neural Information Processing Systems; Curran Associates: Red Hook, NY, USA, 2018.",
         "Du, W.; Côté, D.; Liu, Y. SAITS: Self-Attention-based Imputation for Time Series. Expert Syst. Appl. 2023, 219, 119619.",
         "Tashiro, Y.; Song, J.; Song, Y.; Ermon, S. CSDI: Conditional Score-based Diffusion Models for Probabilistic Time Series Imputation. In Advances in Neural Information Processing Systems; 2021.",
-        "Cini, A.; Marisca, I.; Alippi, C. Filling the GApS: Multivariate Time Series Imputation by Graph Neural Networks. In International Conference on Learning Representations; 2022.",
-        "Wu, Z.; Pan, S.; Long, G.; Jiang, J.; Zhang, C. Graph WaveNet for Deep Spatial-Temporal Graph Modeling. In International Joint Conference on Artificial Intelligence; 2019.",
+        "Cini, A.; Marisca, I.; Alippi, C. Filling the GApS: Multivariate Time Series Imputation by Graph Neural Networks. In Proceedings of the International Conference on Learning Representations (ICLR), 2022.",
+        "Wu, Z.; Pan, S.; Long, G.; Jiang, J.; Zhang, C. Graph WaveNet for Deep Spatial-Temporal Graph Modeling. In Proceedings of the 28th International Joint Conference on Artificial Intelligence (IJCAI), Macao, China, 2019; pp. 1907–1913.",
         "Little, R.J.A.; Rubin, D.B. Statistical Analysis with Missing Data, 3rd ed.; Wiley: Hoboken, NJ, USA, 2019.",
         "Van Buuren, S. Flexible Imputation of Missing Data, 2nd ed.; CRC Press: Boca Raton, FL, USA, 2018.",
-        "Abu-El-Haija, S.; et al. MixHop: Higher-Order Graph Convolutional Architectures via Sparsified Neighborhood Mixing. In International Conference on Machine Learning; 2019.",
+        "Abu-El-Haija, S.; Perozzi, B.; Kapoor, A.; Alipourfard, N.; Lerman, K.; Harutyunyan, H.; Ver Steeg, G.; Galstyan, A. MixHop: Higher-Order Graph Convolutional Architectures via Sparsified Neighborhood Mixing. In Proceedings of the 36th International Conference on Machine Learning (ICML), Long Beach, CA, USA, 2019.",
         "Du, W. PyPOTS: A Python Toolbox for Data Mining on Partially-Observed Time Series. Available online: https://pypots.com (accessed on 8 August 2026).",
         "Jolliffe, I.T.; Stephenson, D.B. Forecast Verification: A Practitioner’s Guide in Atmospheric Science, 2nd ed.; Wiley: Chichester, UK, 2012.",
         "Che, Z.; Purushotham, S.; Cho, K.; Sontag, D.; Liu, Y. Recurrent Neural Networks for Multivariate Time Series with Missing Values. Sci. Rep. 2018, 8, 6085.",
         "Luo, Y.; Cai, X.; Zhang, Y.; Xu, J.; Yuan, X. Multivariate Time Series Imputation with Generative Adversarial Networks. In Advances in Neural Information Processing Systems; 2018.",
-        "Yi, X.; Zheng, Y.; Zhang, J.; Li, T. ST-MVL: Filling Missing Values in Geo-Sensory Time Series Data. In International Joint Conference on Artificial Intelligence; 2016.",
-        "Shi, X.; et al. Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting. In Advances in Neural Information Processing Systems; 2015.",
-        "Vaswani, A.; et al. Attention Is All You Need. In Advances in Neural Information Processing Systems; 2017.",
-        "Kipf, T.N.; Welling, M. Semi-Supervised Classification with Graph Convolutional Networks. In International Conference on Learning Representations; 2017.",
-        "Veličković, P.; et al. Graph Attention Networks. In International Conference on Learning Representations; 2018.",
+        "Yi, X.; Zheng, Y.; Zhang, J.; Li, T. ST-MVL: Filling Missing Values in Geo-Sensory Time Series Data. In Proceedings of the 25th International Joint Conference on Artificial Intelligence (IJCAI), New York, NY, USA, 2016; pp. 2704–2710.",
+        "Cao, D.; Wang, Y.; Duan, J.; Zhang, C.; Zhu, X.; Huang, C.; Tong, Y.; Xu, B.; Bai, J.; Tong, J.; Zhang, Q. Spectral Temporal Graph Neural Network for Multivariate Time-series Forecasting. In Advances in Neural Information Processing Systems; 2020. (StemGNN; used as GRIN* proxy).",
+        "Vaswani, A.; Shazeer, N.; Parmar, N.; Uszkoreit, J.; Jones, L.; Gomez, A.N.; Kaiser, Ł.; Polosukhin, I. Attention Is All You Need. In Advances in Neural Information Processing Systems; 2017.",
+        "Kipf, T.N.; Welling, M. Semi-Supervised Classification with Graph Convolutional Networks. In Proceedings of the International Conference on Learning Representations (ICLR), 2017.",
+        "Veličković, P.; Cucurull, G.; Casanova, A.; Romero, A.; Liò, P.; Bengio, Y. Graph Attention Networks. In Proceedings of the International Conference on Learning Representations (ICLR), 2018.",
         "MDPI. Instructions for Authors—Water. Available online: https://www.mdpi.com/journal/water/instructions (accessed on 8 August 2026).",
-        "Ministry of Ecology and Environment of the People’s Republic of China. Environmental Quality Standards for Surface Water (GB 3838-2002). Beijing, China, 2002.",
-        "Ke, G.; et al. LightGBM: A Highly Efficient Gradient Boosting Decision Tree. In Advances in Neural Information Processing Systems; 2017.",
-        "Hylleberg, S. Seasonality in regression models with applications to environmental series. (use definitive DO/hypoxia monitoring papers for your lab before proof).",
-        "Please replace any ‘et al.’ placeholders for Dianchi/eutrophication reviews with definitive bibliographic records from Web of Science / Scopus before proof stage.",
+        "Ministry of Ecology and Environment of the People’s Republic of China. Environmental Quality Standards for Surface Water (GB 3838-2002); Beijing, China, 2002.",
+        "Ke, G.; Meng, Q.; Finley, T.; Wang, T.; Chen, W.; Ma, W.; Ye, Q.; Liu, T.-Y. LightGBM: A Highly Efficient Gradient Boosting Decision Tree. In Advances in Neural Information Processing Systems; 2017.",
+        "Gao, W.; Howarth, R.W.; Swaney, D.P.; Hong, B.; Guo, H.C. Enhanced N input to Lake Dianchi Basin from human activities: Implications for management. Environ. Pollut. 2015, 198, 234–242.",
+        "Zhang, Y.; Ma, R.; Zhang, M.; Duan, H.; Loiselle, S.; Xu, J. Fourteen-year record (2000–2013) of the spatial and temporal dynamics of floating algae blooms in Lake Dianchi, China. Remote Sens. 2015, 7, 11203–11222.",
     ]
     for i, r in enumerate(refs, 1):
         p = doc.add_paragraph()
@@ -686,14 +686,17 @@ def main():
         f"- λ_cons overall: 0→{f4(l0)}, 0.5→{f4(l05)}, 1.0→{f4(l10)}",
         f"- Wins: Linear {win_counts.get('Linear',0)}, BRITS {win_counts.get('BRITS',0)}, MaskView-ST {win_counts.get('MaskView-ST',0)}",
         "",
-        "Word file: `paper/Water_MaskView_Dianchi_manuscript.docx`",
+        f"- Word file written: `{out.as_posix()}`",
+        "- If Word had the old file open, use `Water_MaskView_Dianchi_manuscript_v2.docx`, then close Word and rename to the main filename.",
+        "",
+        "## Author (filled)",
+        "- Senjie Zhang (张森捷), Lanzhou University, 3079099853@qq.com",
         "",
         "## Still human-only before SuSy",
-        "- Author names, affiliations, ORCID",
-        "- Funding statement",
+        "- Optional ORCID in SuSy",
         "- Paste into official MDPI Word template",
-        "- Polish 2–3 Dianchi review citations to definitive records",
-        "- English language proofread (optional but recommended)",
+        "- Confirm APC funding",
+        "- Optional English proofread",
     ]
     (PAPER / "FINAL_CONTENT_LOCK.md").write_text("\n".join(md_lines), encoding="utf-8")
 
@@ -724,11 +727,14 @@ def main():
         "report the residual station-pattern gap. We believe the work fits the Water Quality / "
         "Hydroinformatics scope and meets MDPI expectations for open data and reproducible methods.\n\n"
         "Suggested section: Water Quality.\n"
+        "Optional Special Issue: Water Quality Studies: Assessing the Presence of "
+        "Nutrients and Pollutants, 2nd Edition.\n"
         "Article type: Article.\n\n"
         "Sincerely,\n"
-        "[Corresponding Author]\n"
-        "[Institution]\n"
-        "[Email]\n",
+        "Senjie Zhang (张森捷)\n"
+        "Lanzhou University\n"
+        "Lanzhou 730000, Gansu, China\n"
+        "Email: 3079099853@qq.com\n",
         encoding="utf-8",
     )
     (PAPER / "SUBMISSION_CHECKLIST_WATER.md").write_text(
@@ -736,24 +742,31 @@ def main():
             [
                 "# Water (MDPI) — final submission checklist",
                 "",
+                "## Author",
+                "- Senjie Zhang (张森捷)",
+                "- Lanzhou University, Lanzhou 730000, Gansu, China",
+                "- Corresponding email: 3079099853@qq.com",
+                "",
                 "## Content locked (done)",
+                "- [x] Author / affiliation / email filled",
+                "- [x] Single-author contributions (S.Z.)",
+                "- [x] Funding: no external funding",
                 "- [x] All 105-setting benchmark numbers in manuscript",
                 "- [x] DO tables and hard-pattern rankings",
                 "- [x] Ablations: λ_cons, point_only, spatial_plus_l0",
                 "- [x] Recommended recipe = spatial_plus_l0 (λ=0, MixHop, k=8)",
                 "- [x] Conditional claim (not “beats Linear everywhere”)",
                 "- [x] Station gap vs BRITS acknowledged",
-                "- [x] Figures 1–5 embedded from results/figures/",
+                "- [x] Figures 1–5 embedded (heatmap annotations fixed)",
                 "- [x] Data + code availability URLs",
                 "- [x] Cover letter + highlights",
+                "- [x] Dianchi / method references cleaned (no placeholder notes)",
                 "",
-                "## Human before upload",
-                "- [ ] Author names / affiliations / ORCID",
-                "- [ ] Funding",
+                "## Before SuSy upload",
                 "- [ ] Paste into official MDPI Word template",
-                "- [ ] Replace 2–3 Dianchi ‘et al.’ review placeholders with definitive bibliographic records",
+                "- [ ] Optional ORCID",
                 "- [ ] APC funding confirmed",
-                "- [ ] Optional: English polish",
+                "- [ ] Choose Section = Water Quality; SI optional (Nutrients and Pollutants 2nd Ed.)",
                 "",
                 "Template: https://www.mdpi.com/journal/water/instructions",
                 "Manuscript: paper/Water_MaskView_Dianchi_manuscript.docx",

@@ -8,11 +8,14 @@
 - λ_cons overall: 0→0.3965, 0.5→0.4165, 1.0→0.4472
 - Wins: Linear 9, BRITS 5, MaskView-ST 1
 
-Word file: `paper/Water_MaskView_Dianchi_manuscript.docx`
+- Word file written: `D:/deep-learning/code/water-ai-do-forecast/paper/Water_MaskView_Dianchi_manuscript_v2.docx`
+- If Word had the old file open, use `Water_MaskView_Dianchi_manuscript_v2.docx`, then close Word and rename to the main filename.
+
+## Author (filled)
+- Senjie Zhang (张森捷), Lanzhou University, 3079099853@qq.com
 
 ## Still human-only before SuSy
-- Author names, affiliations, ORCID
-- Funding statement
+- Optional ORCID in SuSy
 - Paste into official MDPI Word template
-- Polish 2–3 Dianchi review citations to definitive records
-- English language proofread (optional but recommended)
+- Confirm APC funding
+- Optional English proofread
