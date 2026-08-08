@@ -667,7 +667,12 @@ def main():
         p.paragraph_format.line_spacing = 1.15
 
     out = PAPER / "Water_MaskView_Dianchi_manuscript.docx"
-    doc.save(out)
+    try:
+        doc.save(out)
+    except PermissionError:
+        out = PAPER / "Water_MaskView_Dianchi_manuscript_v2.docx"
+        doc.save(out)
+        print("NOTE: original docx locked (close Word); wrote", out)
 
     # Markdown mirror for audit
     md_lines = [
