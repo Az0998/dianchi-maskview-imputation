@@ -15,15 +15,43 @@ plt.rcParams["axes.unicode_minus"] = False
 
 def plot_benchmark_heatmap(df: pd.DataFrame, metric: str, out: Path):
     """df columns: model, pattern, rate, metric"""
+    pattern_order = ["point", "block_time", "sensor", "station", "mixed"]
+    model_order = ["Mean", "LOCF", "Linear", "SAITS", "BRITS", "GRIN*", "MaskView-ST"]
     sub = df.copy()
-    sub["setting"] = sub["pattern"] + "@" + sub["rate"].map(lambda x: f"{x:.0%}")
+    sub["setting"] = sub["pattern"] + "@" + sub["rate"].map(lambda x: f"{int(round(float(x) * 100))}%")
     pivot = sub.pivot_table(index="model", columns="setting", values=metric, aggfunc="mean")
-    fig, ax = plt.subplots(figsize=(max(8, 0.55 * pivot.shape[1] + 3), 0.45 * pivot.shape[0] + 3))
-    sns.heatmap(pivot, annot=True, fmt=".3f", cmap="YlGnBu_r", ax=ax)
-    ax.set_title(f"Imputation {metric} (lower better)")
-    fig.tight_layout()
-    fig.savefig(out, dpi=220, bbox_inches="tight")
-    plt.close(fig)
+    col_order = [
+        f"{p}@{r}%"
+        for p in pattern_order
+        for r in (10, 20, 30)
+        if f"{p}@{r}%" in pivot.columns
+    ]
+    row_order = [m for m in model_order if m in pivot.index] + [
+        m for m in pivot.index if m not in model_order
+    ]
+    pivot = pivot.reindex(index=row_order, columns=col_order)
+    # Paper-readable: large canvas + small annotations (talk context makes digits overlap).
+    with sns.axes_style("white"), sns.plotting_context("paper"):
+        fig, ax = plt.subplots(figsize=(14.5, 5.2))
+        sns.heatmap(
+            pivot,
+            annot=True,
+            fmt=".2f",
+            cmap="YlGnBu_r",
+            ax=ax,
+            linewidths=0.4,
+            linecolor="white",
+            annot_kws={"size": 7.5, "color": "black"},
+            cbar_kws={"shrink": 0.85, "label": metric},
+        )
+        ax.set_title(f"Imputation {metric} (lower better)", fontsize=12)
+        ax.set_xlabel("")
+        ax.set_ylabel("")
+        ax.tick_params(axis="x", rotation=45, labelsize=8)
+        ax.tick_params(axis="y", rotation=0, labelsize=9)
+        fig.tight_layout()
+        fig.savefig(out, dpi=300, bbox_inches="tight")
+        plt.close(fig)
 
 
 def plot_model_bars(df: pd.DataFrame, metric: str, out: Path, pattern: str = "mixed", rate: float = 0.2):
