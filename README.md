@@ -8,7 +8,7 @@
 ## 快速开始
 
 ```bash
-cd water-ai-do-forecast
+cd dianchi-maskview-imputation
 pip install -r requirements.txt
 
 # 数据已在 data/raw/；国内可：
@@ -91,4 +91,4 @@ python build_water_manuscript.py
 - `results/tables/imputation_benchmark.csv`（105 行全表）
 - `results/tables/table_mae_full.csv` 等透视表
 - `results/figures/fig_imputation_*.png`
-- `checkpoints/maskview_st.pt`
+- `checkpoints/maskview_st.pt`（权重不入库，`checkpoints/` 需按上述命令本地训练生成）

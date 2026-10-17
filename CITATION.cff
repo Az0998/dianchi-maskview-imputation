@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+type: software
+title: "Dianchi Mask-View: spatiotemporal water-quality imputation and downstream early warning"
+authors:
+  - name: "Az0998"
+repository-code: "https://github.com/Az0998/dianchi-maskview-imputation"
+url: "https://az0998.github.io/dianchi-maskview-imputation/"
+license: MIT
